@@ -6,10 +6,9 @@ import { cn } from "@/lib/utils";
 
 // Omitimos os handlers de drag nativos porque o Framer Motion define
 // sua própria assinatura para eles (incompatível com a do DOM puro).
-type NativeButtonProps = Omit
-React.ButtonHTMLAttributes<HTMLButtonElement>,
+type NativeButtonProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>,
     "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart"
-    >;
+>;
 
 interface MagneticButtonProps extends NativeButtonProps {
     variant?: "primary" | "ghost";
