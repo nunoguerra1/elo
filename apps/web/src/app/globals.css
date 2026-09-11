@@ -1,13 +1,27 @@
 @import "tailwindcss";
 
+/*
+ * Paleta v3 — riso-print / paisagem em camadas:
+ * fundo claro tipo papel, tinta quase-preta pro texto, e uma paleta
+ * de "terreno" (navy, rosa, azul periwinkle, amarelo, coral) usada
+ * nas formas orgânicas — coral também vira a cor de interface
+ * (botões/links), pra não introduzir uma sexta cor.
+ */
 :root {
-  --background: #0b0b0a;
-  --foreground: #f2ede4;
-  --muted: #8a877e;
-  --accent: #e8823c;
-  --accent-foreground: #100b06;
-  --surface: #161512;
-  --border: #2a2822;
+  --background: #f1ede2;
+  --foreground: #201d3a;
+  --muted: #6b6758;
+  --surface: #e8e2d2;
+  --border: #d8d0ba;
+
+  --accent: #e6663f;
+  --accent-foreground: #fdf6ee;
+
+  --terrain-navy: #2b2f6b;
+  --terrain-pink: #e3a9c2;
+  --terrain-blue: #8e93d9;
+  --terrain-yellow: #e7c948;
+  --terrain-coral: #e6663f;
 }
 
 @theme inline {
