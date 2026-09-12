@@ -5,6 +5,7 @@ import { ImpactStats } from "@/components/sections/ImpactStats";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { Footer } from "@/components/Footer";
+import { CausesMarquee } from "@/components/sections/CausesMarquee";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Navbar />
       <main className="flex flex-1 flex-col">
         <Hero />
+        <CausesMarquee />
         <ThreeSides />
         <ImpactStats />
         <HowItWorks />
