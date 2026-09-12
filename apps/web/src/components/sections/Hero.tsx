@@ -8,9 +8,11 @@ import { TerrainLandscape } from "@/components/art/TerrainLandscape";
 import { SkyAccents } from "@/components/art/SkyAccents";
 
 // O hero fica "grudado" na tela (sticky) por 100vh extras de scroll,
-// enquanto o headline desaparece e a paisagem cresce — um mergulho
-// de verdade na cena, não só um fade. Depois disso a página destrava
-// e segue o fluxo normal pras próximas seções.
+// enquanto o headline desaparece e a paisagem cresce. A paisagem é
+// FUNDO ABSOLUTO preenchendo a tela inteira (ancorada embaixo) e o
+// headline fica SOBREPOSTO por cima — não empilhados em fluxo normal,
+// senão o conteúdo não cabe numa tela só (h-screen) e a paisagem
+// fica espremida/cortada.
 export function Hero() {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
@@ -25,12 +27,21 @@ export function Hero() {
 
     return (
         <div ref={wrapperRef} className="relative h-[200vh]">
-            <section className="sticky top-0 flex h-screen w-full flex-col items-center overflow-hidden pt-36 sm:pt-44">
+            <section className="sticky top-0 h-screen w-full overflow-hidden">
+                {/* fundo: paisagem ancorada na base, ocupando a tela inteira */}
+                <motion.div
+                    style={{ scale: landscapeScale, y: landscapeY }}
+                    className="absolute inset-x-0 bottom-0 h-[60vh] origin-bottom sm:h-[68vh]"
+                >
+                    <TerrainLandscape />
+                </motion.div>
+
                 <SkyAccents progress={scrollYProgress} />
 
+                {/* headline sobreposto, não empilhado */}
                 <motion.div
                     style={{ opacity: headlineOpacity, y: headlineY }}
-                    className="relative z-10 flex flex-col items-center"
+                    className="relative z-10 flex h-full flex-col items-center pt-32 sm:pt-40"
                 >
                     <p className="mb-6 font-mono text-xs tracking-[0.3em] text-muted">
                         VOLUNTÁRIOS · ONGS · EMPRESAS
@@ -56,13 +67,6 @@ export function Hero() {
                         <Button variant="primary">Encontrar uma causa</Button>
                         <Button variant="ghost">Sou uma ONG</Button>
                     </div>
-                </motion.div>
-
-                <motion.div
-                    style={{ scale: landscapeScale, y: landscapeY }}
-                    className="mt-14 w-full origin-bottom"
-                >
-                    <TerrainLandscape />
                 </motion.div>
             </section>
         </div>

@@ -83,7 +83,7 @@ export function TerrainLandscape() {
     });
 
     return (
-        <div ref={containerRef} className="relative h-[56vh] w-full overflow-hidden sm:h-[64vh]">
+        <div ref={containerRef} className="relative h-full w-full overflow-hidden">
             <svg
                 viewBox="0 0 1200 720"
                 className="absolute inset-x-0 bottom-0 h-full w-full"
