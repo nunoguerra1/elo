@@ -1,4 +1,5 @@
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+import { FloatingShapes } from "@/components/art/FloatingShapes";
 
 const stats = [
     { value: 1200, suffix: "+", label: "horas voluntariadas verificadas" },
@@ -9,6 +10,7 @@ const stats = [
 export function ImpactStats() {
     return (
         <section id="impacto" className="relative overflow-hidden border-y border-border bg-surface py-20">
+            <FloatingShapes variant="stats" />
             <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 gap-10 px-6 sm:grid-cols-3">
                 {stats.map((stat) => (
                     <div key={stat.label} className="text-center sm:text-left">

@@ -2,10 +2,12 @@
 
 import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
+import { FloatingShapes } from "@/components/art/FloatingShapes";
 
 export function CallToAction() {
     return (
         <section id="para-ongs" className="relative overflow-hidden border-t border-border">
+            <FloatingShapes variant="cta" />
             <div className="relative mx-auto flex w-full max-w-3xl flex-col items-center gap-8 px-6 py-28 text-center">
                 <motion.h2
                     initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
