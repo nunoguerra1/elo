@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { KineticReveal } from "@/components/ui/KineticReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,7 +53,7 @@ export function HowItWorks() {
             <div className="mb-16 max-w-xl">
                 <p className="mb-3 font-mono text-xs tracking-[0.3em] text-muted">DO CADASTRO AO CERTIFICADO</p>
                 <h2 className="text-3xl leading-tight text-foreground sm:text-4xl" style={{ fontFamily: "var(--font-voice)" }}>
-                    Três etapas até o impacto virar prova.
+                    <KineticReveal text="Três etapas até o impacto virar prova." />
                 </h2>
             </div>
 
