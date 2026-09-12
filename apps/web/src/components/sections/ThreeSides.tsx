@@ -1,4 +1,6 @@
 import { RevealGroup, RevealItem } from "@/components/motion/RevealGroup";
+import { TiltCard } from "@/components/ui/TiltCard";
+import { KineticReveal } from "@/components/ui/KineticReveal";
 
 const sides = [
     { n: "01", title: "Voluntário", color: "#8e93d9", description: "Cadastra habilidades e disponibilidade, e recebe oportunidades reais que combinam com você — perto de casa, no seu tempo livre." },
@@ -12,23 +14,23 @@ export function ThreeSides() {
             <div className="mb-14 max-w-xl">
                 <p className="mb-3 font-mono text-xs tracking-[0.3em] text-muted">COMO O ELO FUNCIONA</p>
                 <h2 className="text-3xl leading-tight text-foreground sm:text-4xl" style={{ fontFamily: "var(--font-voice)" }}>
-                    Três lados, uma corrente só.
+                    <KineticReveal text="Três lados, uma corrente só." />
                 </h2>
             </div>
 
             <RevealGroup className="grid grid-cols-1 gap-6 sm:grid-cols-3">
                 {sides.map((side) => (
                     <RevealItem key={side.n}>
-                        <div className="group h-full rounded-lg border border-border bg-surface p-8 transition-all duration-300 hover:-translate-y-1.5">
+                        <TiltCard className="group relative h-full rounded-lg border border-border bg-surface p-8">
                             <span
-                                className="mb-6 inline-block h-3 w-3 rounded-full transition-transform duration-300 group-hover:scale-125"
+                                className="mb-6 inline-block h-3 w-3 rounded-full"
                                 style={{ backgroundColor: side.color }}
                             />
                             <h3 className="mb-3 text-xl text-foreground" style={{ fontFamily: "var(--font-voice)" }}>
                                 {side.title}
                             </h3>
                             <p className="text-sm leading-relaxed text-muted">{side.description}</p>
-                        </div>
+                        </TiltCard>
                     </RevealItem>
                 ))}
             </RevealGroup>
