@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import { PaperGrain } from "@/components/PaperGrain";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
+import { Preloader } from "@/components/preloader/Preloader";
 
 const geistSans = Geist({ variable: "--font-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"] });
@@ -29,6 +30,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <Preloader />
         <PaperGrain />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
