@@ -22,7 +22,7 @@ export function CallToAction() {
                 <p className="max-w-md text-base text-muted">
                     Cadastre-se como voluntário, publique a primeira oportunidade da sua ONG, ou leve o CSR da sua empresa pro próximo nível.
                 </p>
-                <Button variant="primary">Criar minha conta</Button>
+                <Button variant="primary" href="/cadastro">Criar minha conta</Button>
             </div>
         </section>
     );

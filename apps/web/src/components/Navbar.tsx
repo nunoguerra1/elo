@@ -39,7 +39,7 @@ export function Navbar() {
                         </li>
                     ))}
                 </ul>
-                <Button variant="ghost" className="px-5 py-2.5 text-xs">
+                <Button variant="ghost" href="/login" className="px-5 py-2.5 text-xs">
                     Entrar
                 </Button>
             </nav>

@@ -64,8 +64,8 @@ export function Hero() {
                     </p>
 
                     <div className="mt-8 flex flex-col gap-4 px-6 sm:flex-row">
-                        <Button variant="primary">Encontrar uma causa</Button>
-                        <Button variant="ghost">Sou uma ONG</Button>
+                        <Button variant="primary" href="/cadastro">Encontrar uma causa</Button>
+                        <Button variant="ghost" href="/cadastro">Sou uma ONG</Button>
                     </div>
                 </motion.div>
             </section>
