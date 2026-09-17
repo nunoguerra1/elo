@@ -4,6 +4,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { TracedAccents } from "@/components/art/TracedAccents";
 
 const DAYS = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
 
@@ -31,6 +32,7 @@ export default function PerfilPage() {
 
     return (
         <div className="flex max-w-2xl flex-col gap-10">
+            <TracedAccents variant="perfil" />
             <div>
                 <p className="mb-1 font-mono text-xs tracking-[0.3em] text-muted">SEU PERFIL</p>
                 <h1 className="text-3xl text-foreground" style={{ fontFamily: "var(--font-voice)" }}>

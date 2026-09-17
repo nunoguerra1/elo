@@ -1,6 +1,7 @@
 import { Calendar, MapPin } from "lucide-react";
 import { RevealGroup, RevealItem } from "@/components/motion/RevealGroup";
 import { cn } from "@/lib/utils";
+import { TracedAccents } from "@/components/art/TracedAccents";
 
 const STATUS_STYLES = {
     confirmada: { label: "Confirmada", bg: "#3fa38f22", text: "#3fa38f" },
@@ -18,6 +19,7 @@ const INSCRICOES = [
 export default function InscricoesPage() {
     return (
         <div className="flex flex-col gap-8">
+            <TracedAccents variant="inscricoes" />
             <div>
                 <p className="mb-1 font-mono text-xs tracking-[0.3em] text-muted">SUA JORNADA</p>
                 <h1 className="text-3xl text-foreground" style={{ fontFamily: "var(--font-voice)" }}>

@@ -1,5 +1,6 @@
 import { Award, Download, QrCode } from "lucide-react";
 import { RevealGroup, RevealItem } from "@/components/motion/RevealGroup";
+import { TracedAccents } from "@/components/art/TracedAccents";
 
 const CERTIFICATES = [
     { title: "Mutirão de reflorestamento", ong: "Instituto Raiz Viva", hours: 6, date: "14 ago 2026", color: "#3f7d5c" },
@@ -11,6 +12,7 @@ const CERTIFICATES = [
 export default function CertificadosPage() {
     return (
         <div className="flex flex-col gap-8">
+            <TracedAccents variant="certificados" />
             <div>
                 <p className="mb-1 font-mono text-xs tracking-[0.3em] text-muted">SUAS HORAS, COMPROVADAS</p>
                 <h1 className="text-3xl text-foreground" style={{ fontFamily: "var(--font-voice)" }}>
