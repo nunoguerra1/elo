@@ -2,18 +2,21 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Compass, ClipboardCheck, Award, User } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const NAV_ITEMS = [
-    { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-    { href: "/dashboard/oportunidades", label: "Oportunidades", icon: Compass },
-    { href: "/dashboard/inscricoes", label: "Minhas inscrições", icon: ClipboardCheck },
-    { href: "/dashboard/certificados", label: "Certificados", icon: Award },
-    { href: "/dashboard/perfil", label: "Perfil", icon: User },
-];
+export interface NavItem {
+    href: string;
+    label: string;
+    icon: LucideIcon;
+}
 
-export function Sidebar() {
+interface SidebarProps {
+    items: NavItem[];
+    footerLabel: string;
+}
+
+export function Sidebar({ items, footerLabel }: SidebarProps) {
     const pathname = usePathname();
 
     return (
@@ -25,7 +28,7 @@ export function Sidebar() {
             </div>
 
             <nav className="flex flex-1 flex-col gap-1 px-3">
-                {NAV_ITEMS.map((item) => {
+                {items.map((item) => {
                     const isActive = pathname === item.href;
                     const Icon = item.icon;
                     return (
@@ -47,7 +50,7 @@ export function Sidebar() {
             </nav>
 
             <div className="border-t border-border px-6 py-5">
-                <p className="text-xs text-muted">Logado como voluntário</p>
+                <p className="text-xs text-muted">{footerLabel}</p>
             </div>
         </aside>
     );
