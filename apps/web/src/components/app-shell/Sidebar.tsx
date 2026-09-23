@@ -2,22 +2,37 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { LucideIcon } from "lucide-react";
+import {
+    LayoutDashboard, Compass, ClipboardCheck, Award, User,
+    ClipboardList, Building,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export interface NavItem {
-    href: string;
-    label: string;
-    icon: LucideIcon;
-}
+export type Role = "voluntario" | "ong";
+
+const NAV_CONFIG: Record<Role, { href: string; label: string; icon: typeof LayoutDashboard }[]> = {
+    voluntario: [
+        { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+        { href: "/dashboard/oportunidades", label: "Oportunidades", icon: Compass },
+        { href: "/dashboard/inscricoes", label: "Minhas inscrições", icon: ClipboardCheck },
+        { href: "/dashboard/certificados", label: "Certificados", icon: Award },
+        { href: "/dashboard/perfil", label: "Perfil", icon: User },
+    ],
+    ong: [
+        { href: "/ong/dashboard", label: "Dashboard", icon: LayoutDashboard },
+        { href: "/ong/oportunidades", label: "Oportunidades", icon: ClipboardList },
+        { href: "/ong/perfil", label: "Perfil institucional", icon: Building },
+    ],
+};
 
 interface SidebarProps {
-    items: NavItem[];
+    role: Role;
     footerLabel: string;
 }
 
-export function Sidebar({ items, footerLabel }: SidebarProps) {
+export function Sidebar({ role, footerLabel }: SidebarProps) {
     const pathname = usePathname();
+    const items = NAV_CONFIG[role];
 
     return (
         <aside className="fixed inset-y-0 left-0 z-30 hidden w-60 flex-col border-r border-border bg-surface sm:flex">

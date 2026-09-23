@@ -1,16 +1,16 @@
-import { Sidebar, type NavItem } from "@/components/app-shell/Sidebar";
+import { Sidebar, type Role } from "@/components/app-shell/Sidebar";
 
 interface AppShellProps {
     children: React.ReactNode;
-    navItems: NavItem[];
+    role: Role;
     roleLabel: string;
     footerLabel: string;
 }
 
-export function AppShell({ children, navItems, roleLabel, footerLabel }: AppShellProps) {
+export function AppShell({ children, role, roleLabel, footerLabel }: AppShellProps) {
     return (
         <div className="min-h-screen bg-background">
-            <Sidebar items={navItems} footerLabel={footerLabel} />
+            <Sidebar role={role} footerLabel={footerLabel} />
             <div className="sm:pl-60">
                 <header className="flex items-center justify-between border-b border-border px-6 py-4 sm:px-8">
                     <span className="font-mono text-xs tracking-[0.2em] text-muted">{roleLabel}</span>
