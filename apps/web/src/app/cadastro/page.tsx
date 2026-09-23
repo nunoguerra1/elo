@@ -33,9 +33,15 @@ export default function CadastroPage() {
 
     // Mock: sem back-end ainda. Assim que a API de identity existir,
     // troca por um cadastro real usando `selected` como o papel do usuário.
+    // Empresa ainda não tem painel próprio (Fase D), cai no dashboard do
+    // voluntário por enquanto.
     function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
-        router.push("/dashboard");
+        if (selected === "ong") {
+            router.push("/ong/dashboard");
+        } else {
+            router.push("/dashboard");
+        }
     }
 
     const [backColor, frontColor] = PANEL_COLORS[selected];
