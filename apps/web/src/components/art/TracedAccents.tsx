@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion";
 
-type Variant = "oportunidades" | "inscricoes" | "certificados" | "perfil";
+type Variant = "oportunidades" | "inscricoes" | "certificados" | "perfil" | "empresa";
 
 const PALETTES: Record<Variant, string> = {
     oportunidades: "#3f7d5c",
     inscricoes: "#8e93d9",
     certificados: "#e7c948",
     perfil: "#e3a9c2",
+    empresa: "#2b2f6b",
 };
 
 // Linha tracejada que "anda" de verdade: a gente anima o strokeDashoffset
@@ -85,7 +86,7 @@ export function TracedAccents({ variant }: { variant: Variant }) {
         <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden opacity-60">
             <MarchingArc color={color} />
             {variant !== "certificados" && <DrawingConnector color={color} />}
-            {(variant === "inscricoes" || variant === "perfil") && <SpinningRing color={color} />}
+            {(variant === "inscricoes" || variant === "perfil" || variant === "empresa") && <SpinningRing color={color} />}
             {(variant === "oportunidades" || variant === "certificados") && <FloatingOutline color={color} />}
         </div>
     );

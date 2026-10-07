@@ -4,11 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
     LayoutDashboard, Compass, ClipboardCheck, Award, User,
-    ClipboardList, Building,
+    ClipboardList, Building, HandCoins, FileBarChart,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export type Role = "voluntario" | "ong";
+export type Role = "voluntario" | "ong" | "empresa";
 
 const NAV_CONFIG: Record<Role, { href: string; label: string; icon: typeof LayoutDashboard }[]> = {
     voluntario: [
@@ -22,6 +22,12 @@ const NAV_CONFIG: Record<Role, { href: string; label: string; icon: typeof Layou
         { href: "/ong/dashboard", label: "Dashboard", icon: LayoutDashboard },
         { href: "/ong/oportunidades", label: "Oportunidades", icon: ClipboardList },
         { href: "/ong/perfil", label: "Perfil institucional", icon: Building },
+    ],
+    empresa: [
+        { href: "/empresa/dashboard", label: "Dashboard", icon: LayoutDashboard },
+        { href: "/empresa/patrocinar", label: "Patrocinar causa", icon: HandCoins },
+        { href: "/empresa/relatorios", label: "Relatórios ESG", icon: FileBarChart },
+        { href: "/empresa/perfil", label: "Perfil da empresa", icon: Building },
     ],
 };
 
